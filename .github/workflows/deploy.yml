@@ -29,8 +29,7 @@ jobs:
         run: npm ci --frozen-lockfile
 
       - name: 🔍 Lint check
-        run: npm run lint --if-present
-        continue-on-error: true   # Don't fail pipeline on lint warnings
+        run: npm run lint --if-present || true   # Lint warnings deploy block করবে না
 
       - name: 🏗️ Build project
         run: npm run build
